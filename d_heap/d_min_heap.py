@@ -1,4 +1,4 @@
-from heap_base import Dheap
+from d_heap import Dheap
 
 
 class MinHeap(Dheap):
@@ -18,6 +18,8 @@ class MinHeap(Dheap):
             size: Size of the array
         """
         children = self.get_children(index)
+        if children == []:
+            return
         min_child_index = children.index(min(children))
         # get actual index of min child
         min_child_index = (self.k * index) + (min_child_index + 1)

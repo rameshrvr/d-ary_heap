@@ -1,4 +1,4 @@
-from heap_base import Dheap
+from d_heap import Dheap
 
 
 class MaxHeap(Dheap):
@@ -18,6 +18,8 @@ class MaxHeap(Dheap):
             size: Size of the array
         """
         children = self.get_children(index)
+        if children == []:
+            return
         max_child_index = children.index(max(children))
         # get actual index of min child
         max_child_index = (self.k * index) + (max_child_index + 1)
