@@ -1,8 +1,12 @@
+import copy
 
 
-class Dheap():
-    def __init__(self):
-        pass
+class Dheap(object):
+    def __init__(self, k, heap):
+        self.heap = copy.deepcopy(heap)
+        self.k = k
+        if self.heap:
+            self.heapify()
 
     def elements(self):
         """
