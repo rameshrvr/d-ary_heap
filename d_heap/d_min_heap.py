@@ -1,9 +1,10 @@
+import copy
 from d_heap import Dheap
 
 
 class MinHeap(Dheap):
     def __init__(self, k, heap=[]):
-        self.heap = heap
+        self.heap = copy.deepcopy(heap)
         self.k = k
         if self.heap:
             self.heapify()
