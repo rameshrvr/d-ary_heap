@@ -1,4 +1,3 @@
-import copy
 from unittest import TestCase
 from d_heap import MinHeap, MaxHeap
 
@@ -56,13 +55,18 @@ class TestMinHeap(TestCase):
         min_heap = MinHeap(4, self.array)
         min_heap.delete_element_at_index(1)
         self.assertEqual(14, min_heap.length())
-        self.assertEqual([1, 4, 2, 8, 11, 15, 5, 14, 10, 7, 6, 12, 9, 13], min_heap.elements())
+        self.assertEqual(
+            [1, 4, 2, 8, 11, 15, 5, 14, 10, 7, 6, 12, 9, 13],
+            min_heap.elements()
+        )
         min_heap.delete_element_at_index(3)
-        self.assertEqual([1, 4, 2, 13, 11, 15, 5, 14, 10, 7, 6, 12, 9], min_heap.elements())
+        self.assertEqual(
+            [1, 4, 2, 13, 11, 15, 5, 14, 10, 7, 6, 12, 9],
+            min_heap.elements()
+        )
         self.assertEqual(13, min_heap.length())
         min_heap.delete_element_at_index(13)
         self.assertEqual(13, min_heap.length())
-
 
     def test_search_value_minheap(self):
         min_heap = MinHeap(3, self.array)
@@ -165,13 +169,18 @@ class TestMaxHeap(TestCase):
         max_heap = MaxHeap(3, self.array)
         max_heap.delete_element_at_index(1)
         self.assertEqual(14, max_heap.length())
-        self.assertEqual([15, 11, 14, 12, 4, 1, 5, 6, 10, 7, 2, 8, 9, 3], max_heap.elements())
+        self.assertEqual(
+            [15, 11, 14, 12, 4, 1, 5, 6, 10, 7, 2, 8, 9, 3],
+            max_heap.elements()
+        )
         max_heap.delete_element_at_index(3)
-        self.assertEqual([15, 11, 14, 9, 4, 1, 5, 6, 10, 7, 2, 8, 3], max_heap.elements())
+        self.assertEqual(
+            [15, 11, 14, 9, 4, 1, 5, 6, 10, 7, 2, 8, 3],
+            max_heap.elements()
+        )
         self.assertEqual(13, max_heap.length())
         max_heap.delete_element_at_index(13)
         self.assertEqual(13, max_heap.length())
-
 
     def test_search_value_maxheap(self):
         max_heap = MaxHeap(5, self.array)
