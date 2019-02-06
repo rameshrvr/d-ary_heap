@@ -32,8 +32,6 @@ class MinHeap(Dheap):
         Method to swim up if the children are smaller the root
         Args:
             index: Index of the children
-            (Here we need to pass 1 based index instead of 0 based index
-            so that it will be easy for us to find the parrent)
         Example: (4 children heap)
                             1
               2        3         4        5
@@ -49,3 +47,15 @@ class MinHeap(Dheap):
             return
         self._swap(parent, index)
         self._swim_up(index=parent)
+
+    def delete_element_at_index(self, index):
+        """
+        Removes the element at the specified index
+
+        """
+        if index >= self.length():
+            return
+
+        self.heap[index] = float("-inf")
+        self.swim_up(index)
+        self.extract_root()

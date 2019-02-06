@@ -20,7 +20,7 @@ class MaxHeap(Dheap):
         if children == []:
             return
         max_child_index = children.index(max(children))
-        # get actual index of min child
+        # get actual index of max child
         max_child_index = (self.k * index) + (max_child_index + 1)
         if self.heap[max_child_index] > self.heap[index]:
             self._swap(index, max_child_index)
@@ -32,8 +32,6 @@ class MaxHeap(Dheap):
         Method to swim up if the children are greater the root
         Args:
             index: Index of the children
-            (Here we need to pass 1 based index instead of 0 based index
-            so that it will be easy for us to find the parrent)
         Example: (4 children heap)
                             16
               15       14        13       12
@@ -49,3 +47,15 @@ class MaxHeap(Dheap):
             return
         self._swap(parent, index)
         self._swim_up(index=parent)
+
+    def delete_element_at_index(self, index):
+        """
+        Removes the element at the specified index
+
+        """
+        if index >= self.length():
+            return
+
+        self.heap[index] = float("inf")
+        self.swim_up(index)
+        self.extract_root()

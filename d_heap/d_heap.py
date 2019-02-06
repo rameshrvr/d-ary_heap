@@ -83,6 +83,24 @@ class Dheap(object):
         self._heapify(index=0, size=self.length())
         return result
 
+    def search_value(self, value):
+        """
+        Brief:
+            Searches the value in heap and returns index
+        Args:
+            value: The value to be searched in the heap
+        Return:
+             Returns the index if the value is found otherwise -1
+             Note: if same element is present multiple times,
+                   first occurring index is returned
+        """
+        length = self.length()
+        for index in range(length):
+            if self.heap[index] == value:
+                return index
+
+        return -1
+
     def _swap(self, index1, index2):
         """
         Brief:
