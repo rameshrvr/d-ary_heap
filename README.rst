@@ -51,51 +51,57 @@ Tutorial
 
 .. code-block:: python
 	
-	Rameshs-MBP-ead8:binary_heap rameshrv$ python3
+	Rameshs-MacBook-Pro:d-ary_heap rameshrv$ python3
 	Python 3.7.2 (default, Dec 27 2018, 07:35:06) 
 	[Clang 10.0.0 (clang-1000.11.45.5)] on darwin
 	Type "help", "copyright", "credits" or "license" for more information.
+	>>>
+	>>> from d_heap import MinHeap, MaxHeap
 	>>> 
-	>>> from binary_heap import MinHeap
-	>>>
-	>>> min_heap = MinHeap([4, 3, 6, 8, 11])  # Create an object for Min Heap
-	>>>
-	>>> min_heap.length()  # Returns size of the heap
-	5
-	>>> min_heap.elements()
-	[3, 4, 6, 8, 11]
-	>>>
-	>>> min_heap.add_element(1)  # Add a single element to Heap
-	>>>
-	>>> min_heap.elements()
-	[1, 4, 3, 8, 11, 6]
-	>>>
-	>>> min_heap.add_element([1, 14, 7, 5])  # Add list of elements to Heap
-	>>>
-	>>> min_heap.elements()
-	[1, 4, 1, 7, 5, 6, 3, 14, 8, 11]
-	>>>
-	>>> min_heap.extract_root()  # Extract root element from Heap and retrun it. In this case its the minimum element
+	>>> array = [4, 3, 6, 8, 11, 1, 5, 14, 10, 7, 2, 12, 9, 13, 15]
+	>>> 
+	>>> min_heap_4_children = MinHeap(4, array)  # Convert array to 4 children Heap
+	>>> 
+	>>> min_heap_4_children.elements()
+	[1, 3, 2, 8, 11, 4, 5, 14, 10, 7, 6, 12, 9, 13, 15]
+	>>> 
+	>>> min_heap_5_children = MinHeap(5, array)  # Convert array to 5 children Heap
+	>>> 
+	>>> min_heap_5_children.elements()
+	[1, 2, 6, 8, 11, 4, 5, 14, 10, 7, 3, 12, 9, 13, 15]
+	>>> 
+	>>> min_heap_4_children.add_element(0)  # Add single element to Heap
+	>>> 
+	>>> min_heap_4_children.elements()
+	[0, 3, 2, 1, 11, 4, 5, 14, 10, 7, 6, 12, 9, 13, 15, 8]
+	>>> 
+	>>> min_heap_5_children.add_element([0, 24, 17, 55])  # Add list of elements to heap
+	>>> 
+	>>> min_heap_5_children.elements()
+	[0, 2, 1, 8, 11, 4, 5, 14, 10, 7, 3, 12, 9, 13, 15, 6, 24, 17, 55]
+	>>> 
+	>>> min_heap_4_children.extract_root()  # Extract root element from Heap and retrun it. In this case its the minimum element
+	0
+	>>> 
+	>>> min_heap_4_children.elements()
+	[1, 3, 2, 8, 11, 4, 5, 14, 10, 7, 6, 12, 9, 13, 15]
+	>>> 
+	>>> min_heap_4_children.get_root_value()  # Returns the root value (minimum value) without removing it from Heap
 	1
-	>>>
-	>>> min_heap.elements()
-	[1, 4, 3, 7, 5, 6, 11, 14, 8]
-	>>>
-	>>> min_heap.get_root_value()  # Returns the root value (minimum value) without removing it from Heap
-	1
-	>>>
-	>>> min_heap.search_value(value=5)  # Returns index of the searched value. -1 if there is no such value in Heap
-	4
-	>>> min_heap.search_value(value=7)
-	3
-	>>> min_heap.search_value(value=16)
+	>>> 
+	>>> min_heap_4_children.search_value(5)  # Returns index of the searched value. -1 if there is no such value in Heap
+	6
+	>>> min_heap_4_children.search_value(7)
+	9
+	>>> min_heap_4_children.search_value(21)
 	-1
-	>>>
-	>>> min_heap.delete_element_at_index(3)  # Remove the element at the specified index
-	>>>
-	>>> min_heap.elements()
-	[1, 4, 3, 8, 5, 6, 11, 14]
 	>>> 
+	>>> min_heap_4_children.delete_element_at_index(4)  # Remove the element at the specified index
+	>>> 
+	>>> min_heap_4_children.elements()
+	[1, 3, 2, 8, 15, 4, 5, 14, 10, 7, 6, 12, 9, 13]
+	>>> 
+
 
 
 
@@ -103,48 +109,58 @@ Tutorial
 
 .. code-block:: python
 
-	Rameshs-MBP-ead8:binary_heap rameshrv$ python3
+	Rameshs-MacBook-Pro:d-ary_heap rameshrv$ python3
 	Python 3.7.2 (default, Dec 27 2018, 07:35:06) 
 	[Clang 10.0.0 (clang-1000.11.45.5)] on darwin
 	Type "help", "copyright", "credits" or "license" for more information.
+	>>>
+	>>> from d_heap import MinHeap, MaxHeap
+	>>>
+	>>> array = [4, 3, 6, 8, 11, 1, 5, 14, 10, 7, 2, 12, 9, 13, 15]
+	>>>
+	>>> max_heap_4_children = MaxHeap(4, array)  # Convert array to 4 children Heap
 	>>> 
-	>>> from binary_heap import MaxHeap
-	>>>
-	>>> max_heap = MaxHeap([4, 3, 6, 8, 11])  # Create an object for Max Heap
-	>>>
-	>>> max_heap.elements()  # Returns size of the heap
-	[11, 8, 6, 4, 3]
-	>>>
-	>>> max_heap.add_element(13)  # Add a single element to Heap
-	>>>
-	>>> max_heap.elements()
-	[13, 8, 11, 4, 3, 6]
-	>>>
-	>>> max_heap.add_element([1, 14, 7, 5])  # Add list of elements to Heap
-	>>>
-	>>> max_heap.elements()
-	[14, 13, 11, 8, 5, 6, 1, 4, 7, 3]
-	>>>
-	>>> max_heap.extract_root()  # Extract root element from Heap and retrun it. In this case its the maximum element
-	14
-	>>>
-	>>> max_heap.elements()
-	[13, 8, 11, 7, 5, 6, 1, 4, 3]
-	>>>
-	>>> max_heap.get_root_value()  # Returns the root value (maximum value) without removing it from Heap
-	13
+	>>> max_heap_4_children.elements()
+	[15, 14, 12, 13, 11, 1, 5, 3, 10, 7, 2, 6, 9, 4, 8]
 	>>> 
-	>>> max_heap.search_value(value=11)  # Returns index of the searched value. -1 if there is no such value in Heap
-	2
-	>>> max_heap.search_value(value=1)
+	>>> max_heap_5_children = MaxHeap(5, array)  # Convert array to 5 children Heap
+	>>> 
+	>>> max_heap_5_children.elements()
+	[15, 14, 13, 8, 11, 1, 5, 3, 10, 7, 2, 12, 9, 4, 6]
+	>>> 
+	>>> max_heap_4_children.add_element(21)  # Add single element to Heap
+	>>> 
+	>>> max_heap_4_children.elements()
+	[21, 14, 12, 15, 11, 1, 5, 3, 10, 7, 2, 6, 9, 4, 8, 13]
+	>>> 
+	>>> 
+	>>> max_heap_5_children.add_element([21, 14, 27, 35])  # Add list of elements to heap
+	>>> 
+	>>> max_heap_5_children.elements()
+	[35, 14, 15, 27, 11, 1, 5, 3, 10, 7, 2, 12, 9, 4, 6, 13, 8, 14, 21]
+	>>> 
+	>>> max_heap_4_children.extract_root()  # Extract root element from Heap and retrun it. In this case its the maximum element
+	21
+	>>> 
+	>>> max_heap_4_children.elements()
+	[15, 14, 12, 13, 11, 1, 5, 3, 10, 7, 2, 6, 9, 4, 8]
+	>>> 
+	>>> max_heap_4_children.get_root_value()  # Returns the root value (maximum value) without removing it from Heap
+	15
+	>>> 
+	>>> max_heap_4_children.search_value(5)  # Returns index of the searched value. -1 if there is no such value in Heap
 	6
-	>>> max_heap.search_value(value=14)
+	>>> max_heap_4_children.search_value(11)
+	4
+	>>> max_heap_4_children.search_value(21)
 	-1
-	>>>
-	>>> max_heap.delete_element_at_index(3)  # Remove the element at the specified index
-	>>>
-	>>> max_heap.elements()
-	[13, 8, 11, 4, 5, 6, 1, 3]
+	>>> 
+	>>> max_heap_4_children.delete_element_at_index(2)  # Remove the element at the specified index
+	>>> 
+	>>> max_heap_4_children.elements()
+	[15, 14, 9, 13, 11, 1, 5, 3, 10, 7, 2, 6, 8, 4]
+	>>> 
+
 
 
 Development
@@ -177,7 +193,7 @@ misc
 ========
 
 :license:
-  * GPL-3.0
+  * MIT License
 
 :authors:
   * Ramesh RV
