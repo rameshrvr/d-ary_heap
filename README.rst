@@ -1,5 +1,12 @@
 D-ary Heap
 ##########
+
+.. image:: https://img.shields.io/badge/d_heap-0.0.2-green.svg
+  :target: https://pypi.org/project/d-heap/
+.. image:: https://travis-ci.org/rameshrvr/d-ary_heap.svg?branch=master
+    :target: https://travis-ci.org/rameshrvr/d-ary_heap
+
+
 Python functions for working with D-ary Heap (Heap with more than 2 child nodes). For more info about this Data Structure Please gothrough: https://en.wikipedia.org/wiki/D-ary_heap
 
 This library provides the below Heap specific functions.

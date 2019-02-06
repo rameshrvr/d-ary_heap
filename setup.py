@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name='d_heap',
-    version='0.0.1',
+    version='0.0.2',
     description='Python functions for working with D-ary Heap '
     '(Heap with more than 2 child nodes)',
     keywords='d-heap heap python-heap min-heap max-heap',
